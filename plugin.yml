@@ -1,0 +1,5 @@
+name: Civilizations Server Base
+main: me.shady1765.CivServerBase.CivBase
+version: 1.0
+description: >
+             A plugin for The Civilizations Server. Prevents the placement of bedrock without operator status.
