@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -108,47 +107,15 @@ public class CivCore extends JavaPlugin {
 				}
 			}
 		}, 0, interval * 20);
-		//BroadcastE
-		//CommandsS
+		//CommandsRedirect
 		getCommand("civserver").setExecutor(new CommandExecutor() {
 			public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-				if (args.length > 0) {
-					return false;
+				me.Wyvernix.CivServerCore.Commander.commandhub(sender, cmd, commandLabel, args);
+				return false;
 				}
-				
-				if (sender instanceof Player) {				
-				Player player = (Player) sender;
-				if(commandLabel.equalsIgnoreCase("civserver")) {
-					player.sendMessage(ChatColor.AQUA + "Welcome to The Civilizations Server.");
-				} else {
-					if (commandLabel.equalsIgnoreCase("cs")) {
-						player.sendMessage("abbvr?");
-					}
-				}
-				//if(commandLabel.equalsIgnoreCase("broadcaststop")) {
-					//if(running == 1) {
-						//Bukkit.getServer().getScheduler().cancelTask(tid);
-						//Player player = (Player) sender;
-						//player.sendMessage("Cancelled broadcasts");
-					//} else {
-					//	Player player = (Player) sender;
-					//	player.sendMessage("They arn't running!");
-					//}
-				//} else if (commandLabel.equalsIgnoreCase("startbroadcast"))
-				//	if(running == 1) {
-				//		Player player = (Player) sender;
-				//		player.sendMessage("They are still running!");
-				//	} else {
-						//start broadcast
-						//running = 0
-				//} 
-			} else {
-				sender.sendMessage("Hey there server, you are " + ChatColor.RED + "NOT" + ChatColor.WHITE + " a player.");
 			}
-			return true;
-			}
-		});
-		//CommandsE
+				);
+		
 		PluginDescriptionFile pdffile = this.getDescription();
 		this.logger.info(pdffile.getName() + " v" + pdffile.getVersion() + " is enabled.");
 	}
