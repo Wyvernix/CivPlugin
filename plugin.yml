@@ -1,5 +1,12 @@
-name: Civilizations Server Base
-main: me.shady1765.CivServerBase.CivBase
-version: 1.0
-description: >
-             A plugin for The Civilizations Server. Prevents the placement of bedrock without operator status.
+author: Wyvernix
+database: false
+description: A plugin for The Civilizations Server.
+main: me.Wyvernix.CivServerCore.CivCore
+name: Civilizations Server Core
+startup: postworld
+version: '1.0'
+commands:
+  civserver:
+    description: Tests plugin.
+    usage: /<command>
+    aliases: [cs, civserv]
